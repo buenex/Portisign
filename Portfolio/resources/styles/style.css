@@ -1,0 +1,77 @@
+.icon{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.icon-facebook{
+    font-size: 50px;
+    color: #4267B2!important;
+}
+.icon-github{
+    font-size: 50px;
+    color: #2a2a2a!important;
+}
+.icon-linkedin{
+    font-size: 50px;
+    color: #0e76a8!important;
+}
+.icon-whatsapp{
+    font-size: 50px;
+    color: #25D366!important;
+}
+.icon-outlook{
+    font-size: 50px;
+    color: #0078d4!important;
+}
+.icon-telegram{
+    font-size: 50px;
+    color: #0088cc!important;
+}
+
+.icon-alert{
+    font-size: 200px;
+    color: #c50700!important;
+}
+.icon-spin{
+    font-size: 100px;
+    color: #252525!important;
+}
+.icon-google{
+    font-size: 50px;
+    /*color: #eb4d40;*/
+    background: -webkit-linear-gradient(#4285f4 0%,#4285f4 25%,#34a853 25%,#34a853 50%,#fbbc05 50%,#fbbc05 75%,#ea4335 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.card-space{
+    margin: 5px;
+}
+.rights{
+    margin: 10px;
+    padding: 10px;
+}
+.spin-rotate{
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+
+.login{
+    /* margin-left: 25%!important; */
+}
+
+.hidden-horizontal{
+    overflow-x: hidden;
+}
+
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}

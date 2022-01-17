@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-100">
+  <head>
+    <meta charset="UTF-8"> 
+    <script src="../resources/scripts/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelaivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d1cdcd4e72.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="../resources/scripts/login.js"></script>
+    <script src="../resources/scripts/criptography.js"></script>    
+    <link href="../resources/styles/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        
+    <title>Portisign - Login</title>
+        
+  </head>
+  <body class="h-100 hidden-horizontal">
+      <div class="container-fluid h-100 w-100">
+          <div class="row align-items-center h-100">
+            <div class="h-100 col-3 bg-dark">
+                <div class="w-100 h-25 row text-light text-center align-items-end justify-content-center">
+                    <h3>
+                        Portisign
+                    </h3>
+                </div>
+                <div class="w-100 h-25 row text-light text-center align-items-start justify-content-center">
+                  <p>
+                      A melhor plataforma de portifólios de projetos web do brasil.
+                  </p>
+              </div>
+            </div>
+            <div class="col mb-2 mt-2">
+              <div id="login-panel" class="row border login h-100 w-50 align-items-start bg-light text-dark pt-2 pb-2 justify-content-center">
+                <h2>Login</h2>
+                <form>
+                  <div class="form-group">
+                    <label for="usuario-login">Usuario</label>
+                    <input type="text" class="form-control" id="usuario-login" aria-describedby="emailHelp" placeholder="Nome de usuario">
+                    <small id="emailHelp" class="form-text text-muted">Todos os dados protegidos.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="senha-login">Senha</label>
+                    <input type="password" class="form-control" id="senha-login" placeholder="Digite a senha">
+                  </div>
+                  <div class="row justify-content-between">
+                    <div class="col mt-3">
+                      <button type="submit" onclick="login()" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="col mt-3">
+                      <a href="#esqueci" onclick="move('login',true,'esqueci')" class="login-close">Esqueci a senha</a><br>
+                      <a href="#cadastro" onclick="move('login',true,'cadastro')">Cadastrar</a>
+                    </div>
+                  </div>                 
+                </form>
+              </div>
+              <div hidden="true" id="esqueci-panel" class="row border login h-100 w-50 align-items-start bg-light text-dark pt-2 pb-2 justify-content-center">
+                <h2>Esqueci a senha</h2>
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="email-recuperacao" aria-describedby="emailHelp" placeholder="Email de recuperação">
+                    <small id="emailHelp" class="form-text text-muted">Enviaremos um link de recuperação de senha para o seu email.</small>
+                  </div>
+                  <div class="row justify-content-between">
+                    <div class="col mt-3">
+                      <button type="submit" onclick="esqueci()" class="btn btn-primary">Enviar</button>
+                    </div>
+                    <div class="col mt-3">
+                      <a href="#login" onclick="move('esqueci',true,'login')">Login</a><br>
+                      <a href="#cadastro" onclick="move('esqueci',true,'cadastro')">Cadastrar</a>
+                    </div>
+                  </div>                 
+                </form>
+              </div> 
+              <div hidden id="cadastro-panel" class="row border login h-100 w-50 align-items-start bg-light text-dark pt-2 pb-2 justify-content-center">
+                <h2>Cadastro </h2>
+                <form>
+                  <div class="form-group">
+                    <label for="nome-cadastro">Nome</label>
+                    <input type="text" class="form-control" id="nome-cadastro" aria-describedby="nomeCadastro" maxlength="200" placeholder="Digite seu nome">
+                  </div>
+                  <div class="form-group">
+                    <label for="email-cadastro">Email</label>
+                    <input type="email" class="form-control" id="email-cadastro" aria-describedby="emailCadastro" maxlength="200" placeholder="Digite seu email">
+                    <small class="form-text text-muted">Este email será utilizado na recuperação de conta.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="cpf-cadastro">CPF</label>
+                    <input type="cpf" onkeypress="$(this).mask('000.000.000-00');" class="form-control" id="cpf-cadastro" aria-describedby="cpfCadastro" maxlength="14" placeholder="000.000.000-00">
+                    <small class="form-text text-muted">Seu cpf não será compartilhado, utilizaremos apenas para controle e você poderá utilizar para acesso.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="usuario-cadastro">Usuario</label>
+                    <input type="text" class="form-control" id="usuario-cadastro" aria-describedby="emailHelp" maxlength="50" placeholder="Nome de usuario">
+                    <small class="form-text text-muted">Todos os dados protegidos.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="senha-cadastro">Senha</label>
+                    <input type="password" class="form-control" id="senha-cadastro" maxlength="50" placeholder="Senha">
+                  </div>
+                  <div class="form-group">
+                    <label for="confirma-senha-cadastro">Confirme a senha</label>
+                    <input type="password" class="form-control" id="confirma-senha-cadastro" maxlength="50" placeholder="Confirme a senha">
+                  </div>
+                  <div class="form-group">
+                    <label for="dica-senha-cadastro">Dica de senha</label>
+                    <input type="text" class="form-control" id="dica-senha-cadastro" maxlength="200" placeholder="Dica de senha">
+                    <small class="form-text text-muted">Sua dica para lembrar da senha.</small>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="termos-cadastro" placeholder="Termos de uso">
+                    <label for="termos-cadastro">Aceito ceder meus dados para ter acesso aos serviços do site Portisign.</label>
+                  </div>
+                  <div class="row justify-content-between">
+                    <div class="col mt-3">
+                      <button type="submit" onclick="cadastrar()" class="btn btn-primary">Enviar</button>
+                      <button type="reset" class="btn btn-danger">Limpar</button>
+                    </div>
+                    <div class="col mt-3">
+                      <a href="#esqueci" onclick="move('cadastro',true,'esqueci')">Esqueci a senha</a><br>
+                      <a href="#login" onclick="move('cadastro',true,'login')">Login</a>
+                    </div>
+                  </div>                 
+                </form>
+              </div>         
+            </div>
+          </div>
+      </div>
+  </body>
+</html>
